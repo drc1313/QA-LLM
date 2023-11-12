@@ -122,12 +122,12 @@ return (
       
       <div className="input-group">
         <label htmlFor="question-input">Your Question:</label>
-        <br/> 
+        <br/>
         <textarea id="question-input" className="textarea"></textarea>
       </div>
       <div className="input-group">
         <label htmlFor="answer-input">Your Answer:</label>
-        <br/> 
+        <br/>
         <textarea id="answer-input" className="textarea"></textarea>
       </div>
 
