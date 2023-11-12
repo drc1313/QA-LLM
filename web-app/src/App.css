@@ -4,19 +4,82 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
 }
 
 textarea {
   margin: 10px;
-  width: 300px; /* Adjust width as needed */
-  height: 100px; /* Adjust height as needed */
+  width: 400px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
   padding: 10px;
   resize: vertical; /* Allows the user to resize vertically */
+}
+
+.btn {
+  /* Button styling */
+  padding: 10px 20px; /* Larger click area */
+  margin-right: 10px; /* Spacing between buttons */
+  cursor: pointer; /* Cursor style */
+}
+
+.qa-list {
+  background-color: rgb(210, 210, 210);
+}
+
+.qa-item {
+  /* Styling for individual Q&A items */
+  margin-bottom: 15px; /* Spacing between items */
+  background-color: rgb(0, 0, 0);
+}
+.qa-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 500px;
+}
+
+.qa-table th, .qa-table td {
+  border: 1px solid rgb(53, 53, 53);
+  padding: 8px;
+  text-align: left;
+  background-color: rgb(237, 236, 236);
+}
+
+.qa-table th {
+  background-color: #dddbdb;
+}
+
+/* Adjust the width, height, border, border radius, and padding as desired */
+.input-style {
+  width: 300px;
+  height: 40px; /* Adjusted for typical input field height */
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Softer border-radius */
+  padding: 10px 20px; /* Adjusted padding */
+  margin-bottom: 15px; /* Spacing between items */
+  font-size: medium; /* Adjust font size if needed */
+  outline: none; /* Removes the default focus outline */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+  text-align: left; /* Aligns text to left */
+}
+
+.input-style::placeholder {
+  color: #aaa; /* Lighter text for placeholder */
+}
+
+.input-style:focus {
+  border-color: #80bdff; /* Highlight color when focused */
+  box-shadow: 0 0 0 0.2rem rgba(128, 189, 255, 0.25); /* Matching highlight shadow */
+}
+
+.edit-mode, .display-mode {
+  /* Styles for edit and display modes */
+  height: 50px;
+
 }

@@ -24,7 +24,6 @@ class Question(db.Model):
             'answer': self.answer
         }
 
-
 @app.route('/questions', methods=['POST'])
 def add_question():
     data = request.json
@@ -35,7 +34,9 @@ def add_question():
 
 @app.route('/questions', methods=['GET'])
 def get_questions():
-    questions = Question.query.all()
+    search_query = request.args.get('search', '')  # Get the search query parameter
+    # Filter questions based on the search query
+    questions = Question.query.filter(Question.content.like(f'%{search_query}%')).all()
     return jsonify([question.to_dict() for question in questions])
 
 @app.route('/questions/<int:question_id>', methods=['DELETE'])
@@ -47,6 +48,18 @@ def delete_question(question_id):
     db.session.delete(question)
     db.session.commit()
     return jsonify({'message': 'Question deleted'}), 200
+
+@app.route('/questions/<int:question_id>', methods=['PUT'])
+def update_question(question_id):
+    data = request.json
+    question = Question.query.get(question_id)
+    if question is None:
+        return jsonify({'message': 'Question not found'}), 404
+
+    question.content = data.get('content', question.content)
+    question.answer = data.get('answer', question.answer)
+    db.session.commit()
+    return jsonify(question.to_dict()), 200
 
 if __name__ == '__main__':
     with app.app_context():
